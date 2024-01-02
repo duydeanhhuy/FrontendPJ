@@ -60,10 +60,6 @@ export const logOutStart = (accessToken,axiosJWT,navigate)=>{
     return async (dispatch,getState) => {
       dispatch({type:actionTypes.LOG_OUT_START})
       try{
-        // let res = await axiosJWT.post(`/api/logout`,{
-        //   headers: {token: `Bearer ${token}`}
-        // })
-        console.log(`check token logout:`,accessToken)
         let res = await logOut(accessToken)
         console.log(`check res logout start: `,res)
         if(res){

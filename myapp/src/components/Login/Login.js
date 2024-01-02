@@ -23,17 +23,6 @@ const Login = () => {
       navigate(`/`)
     }
   },[user])
-  // componentDidMount(){
-  // }
-  // componentDidUpdate(prevProps,prevState,snapshot){
-  //   if(prevProps.auth !== this.props.auth){
-  //     this.props.navigate(`/home`, {state: {
-  //       id: this.props.auth.user.id,
-  //       access_token: this.props.auth.accessToken
-  //     }})
-  //   }
-    
-  // }  
   
     return (
     <>

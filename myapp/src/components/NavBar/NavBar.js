@@ -15,7 +15,8 @@ const NavBar = () => {
     dispatch(logOutStart(accessToken,axiosJWT,navigate))
   }
   useEffect(()=>{
-    if(userLogin === null){
+    console.log(`check userLogin: `,userLogin)
+    if(userLogin === null && !accessToken){
       navigate(`/login`)
     }
   },[userLogin])

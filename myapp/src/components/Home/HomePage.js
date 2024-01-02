@@ -68,8 +68,6 @@ useEffect(() => {
   return (
     
     <main className='home-container'>
-    {console.log(`check allUsers :`,AllUsers)}
-    {console.log(`check userLogin: `,userLogin)}
       <div className='home-role'>
         <span >Your role: </span> &nbsp;
         {userLogin && userLogin.userInfo.admin === false ? `User` : `Admin`}
@@ -91,10 +89,6 @@ useEffect(() => {
                </div>
              )
            })}
-      </div>
-      {}
-      <div className='delete-mes'>
-          
       </div>
     </main>
   )
