@@ -19,9 +19,10 @@ class Register extends Component{
       ...copyState
     })
   }
-  handleClickCreate = (event)=>{
+  handleClickCreate = async (event)=>{
     event.preventDefault()
-    this.props.handleRegister(this.state.email,this.state.username,this.state.password)
+    let res = await this.props.handleRegister(this.state.email,this.state.username,this.state.password)
+    console.log(`res register:`,res);
   }
   render(){
   return (
@@ -42,7 +43,7 @@ class Register extends Component{
           PASSWORD
         </label>
         <input type='password' placeholder='Enter your password' value={this.state.password} onChange={(e)=>this.handleTypeData(e,"password")}/>
-        <button type='submit' onClick={(e)=>this.handleClickCreate(e)}>
+        <button type='submit' disabled={!this.state.email || !this.state.username || !this.state.password} onClick={(e)=>this.handleClickCreate(e)}>
           Create account
         </button>
       </form>

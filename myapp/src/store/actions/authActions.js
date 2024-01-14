@@ -1,6 +1,7 @@
 import actionTypes from './actionTypes'
 import { logOut, loginAxios, registerUser } from '../../axios/fetchData'
 import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 export const userLoginStart = (email, password) => 
    async (dispatch, getState) => {
     dispatch({
@@ -36,11 +37,17 @@ export const userRegisterStart = (email,username,password) => {
   return async (dispatch,getState)=>{
     dispatch({type:actionTypes.USER_REGISTER_START})
     try{
+      
       let res = await registerUser(email,username,password)
+      console.log(`res userREgister:`,res);
       if(res && res.errCode === 0){
+        // const navigate = useNavigate()
         dispatch(userRegisterSuccess(res))
+        toast.success(res.errMessage,` Click Login !!!`)
+        // navigate(`/login`)
       }else{
         dispatch(userRegisterFailed(res))
+        toast.error(res.errMessage)
       }
     }catch(e){
       dispatch(userRegisterFailed(e))

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import actionTypes from "../actions/actionTypes"
 
 const initialState = {
@@ -47,10 +48,10 @@ const authReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.REGISTER_SUCCESS:
-            
             state.register.isFetching = false
             state.register.isError = false
             state.register.success = true
+            
             return{
                 ...state
             }

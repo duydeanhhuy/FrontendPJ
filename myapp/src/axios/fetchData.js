@@ -3,8 +3,8 @@ import axios from './customize'
 const loginAxios = (userEmail, userPassword) => {
   return axios.post(`/api/login`, {email: userEmail,password: userPassword})
 }
-const registerUser = (email, username, password) => {
-  return axios.post(`/api/register`, {email: email,username: username,password: password})
+const registerUser =async (email, username, password) => {
+  return await axios.post(`/api/register`, {email: email,username: username,password: password})
 }
 const fetchAllUser = (accessToken) => {
   return axios.get(`/get-user`, {headers: {token: `Bearer ${accessToken}`}})

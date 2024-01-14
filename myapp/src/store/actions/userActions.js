@@ -49,7 +49,7 @@ export const deleteUserStart = (id,accessToken,axiosJWT) =>{
         }
     }catch(e){
       dispatch(deleteUserFailed(e))
-      
+      toast.error(e)
     }
   }
 }
